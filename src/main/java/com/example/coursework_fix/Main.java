@@ -91,6 +91,7 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         game.game(gameScene, gameRoot, primaryStage, endGameScene, endgameRoot);
         primaryStage.show();
+        //
     }
 
 
