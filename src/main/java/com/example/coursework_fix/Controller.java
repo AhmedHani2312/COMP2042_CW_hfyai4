@@ -53,7 +53,7 @@ public class Controller {
     GameScene game = new GameScene();
 
     //reference to media playerr used in SoundON and SoundOff from scene builder-settings
-    Media mp3MusicFile = new Media(new File("C:\\Users\\omen\\IdeaProjects\\coursework_fix\\src\\main\\resources\\com\\example\\coursework_fix\\unholy.mp3").toURI().toString());
+    Media mp3MusicFile = new Media(new File("C:\\Users\\omen\\IdeaProjects\\coursework_fix\\src\\main\\resources\\com\\example\\coursework_fix\\UNHOLY.mp3").toURI().toString());
     MediaPlayer musicplayer = new MediaPlayer(mp3MusicFile);
 
     // to link the login fxml page
