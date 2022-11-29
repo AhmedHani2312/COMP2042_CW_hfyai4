@@ -65,7 +65,7 @@ public class Cell {
 
     //function to set color from new cellColour class refactored ,
     void setColor(int number) {
-        new cellColour(number, rectangle).setColorByNumber(number);
+        new CellColor(number, rectangle).setColorByNumber(number);
     }
 /*void setColorByNumber(int number) {
     switch (number) {
