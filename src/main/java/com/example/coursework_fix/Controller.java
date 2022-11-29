@@ -63,6 +63,7 @@ public class Controller {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
     }
 
     //this functions goes to get name
