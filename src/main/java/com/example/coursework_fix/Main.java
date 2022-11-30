@@ -2,7 +2,6 @@
  * Represents the game.
  *
  * @author Ahmed Hani Ahmed Ibrahim Moustsafa
- *
  */
 
 package com.example.coursework_fix;
@@ -20,6 +19,7 @@ import javafx.scene.shape.Rectangle;
 
 import java.io.IOException;
 import java.util.Scanner;
+
 //This main class will be used to show the whole logic of the game when we run it
 public class Main extends Application {
     static final int WIDTH = 900; //width var
@@ -27,7 +27,7 @@ public class Main extends Application {
     GameScene game = new GameScene();
     private Group gameRoot = new Group(); // object that stores all nodes in Scene graph
     private Scene gameScene = new Scene(gameRoot, WIDTH, HEIGHT, Color.rgb(189, 177, 92)); // game scene to take width and height of the squares passed as parameters(the game properties). game root will be assigned to Scene object
-    private static Scanner input= new Scanner(System.in); //allows getting input from user
+    private static Scanner input = new Scanner(System.in); //allows getting input from user
 
     public Main() throws IOException {
     }
@@ -57,7 +57,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception { //declaring exceptions that can occur while executing program
         Group menuRoot = new Group();
-       // Scene menuScene = new Scene(menuRoot, WIDTH, HEIGHT);
+        // Scene menuScene = new Scene(menuRoot, WIDTH, HEIGHT);
         Group accountRoot = new Group();
         Scene accountScene = new Scene(accountRoot, WIDTH, HEIGHT, Color.rgb(150, 20, 100, 0.2));
         Group getAccountRoot = new Group();
@@ -82,7 +82,7 @@ public class Main extends Application {
 
         //TO LINK SCENE
         Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));//ii
-        Scene scene =new Scene(root);//ii
+        Scene scene = new Scene(root);//ii
         Group gameRoot = new Group();
         setGameRoot(gameRoot);
         Scene gameScene = new Scene(gameRoot, WIDTH, HEIGHT, Color.rgb(189, 177, 92));
@@ -97,8 +97,8 @@ public class Main extends Application {
 
     // linking scene builder
 
-   //stage.setScene(scene);
-   //stage.show();
+    //stage.setScene(scene);
+    //stage.show();
 
 
     /**

@@ -39,7 +39,7 @@ public class Cell {
     }
 
     void changeCell(Cell cell) {
-        
+
         ChangingText text = new ChangingText();
         text.changeTwoText(textClass, cell.getTextClass());
         root.getChildren().remove(cell.getTextClass());

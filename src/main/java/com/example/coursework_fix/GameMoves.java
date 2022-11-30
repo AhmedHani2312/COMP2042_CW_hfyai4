@@ -5,7 +5,7 @@ package com.example.coursework_fix;
 
 public class GameMoves {
     private static Cell[][] cells = GameScene.getCells();
-    private static int numberOfCells= GameScene.getNumberOfCells();
+    private static int numberOfCells = GameScene.getNumberOfCells();
 
     public static void moveLeft() {
         for (int i = 0; i < numberOfCells; i++) {
