@@ -1,7 +1,9 @@
 package com.example.coursework_fix;
 
 import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -9,6 +11,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Random;
 
 class GameScene {
@@ -22,7 +25,7 @@ class GameScene {
     private long score = 0;
 
     /*
-    * @param number , number if cells to be set*/
+     * @param number , number if cells to be set*/
     static void setNumberOfCells(int number) {
         numberOfCells = number;
         LENGTH = (HEIGHT - ((numberOfCells + 1) * distanceBetweenCells)) / (double) numberOfCells;
@@ -66,8 +69,8 @@ class GameScene {
         if (random.nextInt() % 2 == 0)
             putTwo = false;
         int xCell, yCell;
-            xCell = random.nextInt(aForBound+1);
-            yCell = random.nextInt(bForBound+1);
+        xCell = random.nextInt(aForBound+1);
+        yCell = random.nextInt(bForBound+1);
         if (putTwo) {
             text = textMaker.madeText("2", emptyCells[xCell][yCell].getX(), emptyCells[xCell][yCell].getY(), root);
             emptyCells[xCell][yCell].setTextClass(text);
@@ -157,7 +160,6 @@ class GameScene {
             }
         }
     }
-
     private void moveRight() {
         for (int i = 0; i < numberOfCells; i++) {
             for (int j = numberOfCells - 1; j >= 0; j--) {
@@ -168,7 +170,6 @@ class GameScene {
             }
         }
     }
-
     private void moveUp() {
         for (int j = 0; j < numberOfCells; j++) {
             for (int i = 1; i < numberOfCells; i++) {
@@ -178,9 +179,7 @@ class GameScene {
                 cells[i][j].setModify(false);
             }
         }
-
     }
-
     private void moveDown() {
         for (int j = 0; j < numberOfCells; j++) {
             for (int i = numberOfCells - 1; i >= 0; i--) {
@@ -190,9 +189,7 @@ class GameScene {
                 cells[i][j].setModify(false);
             }
         }
-
     }
-
     private boolean isValidDesH(int i, int j, int des, int sign) {
         if (des + sign < numberOfCells && des + sign >= 0) {
             if (cells[i][des + sign].getNumber() == cells[i][j].getNumber() && !cells[i][des + sign].getModify()
@@ -253,10 +250,10 @@ class GameScene {
     }
 
     private void sumCellNumbersToScore() {
+        //score=0;
         for (int i = 0; i < numberOfCells; i++) {
             for (int j = 0; j < numberOfCells; j++) {
                 score += cells[i][j].getNumber();
-
             }
         }
     }
@@ -286,42 +283,62 @@ class GameScene {
         randomFillNumber(1);
 
         gameScene.addEventHandler(KeyEvent.KEY_PRESSED, key ->{
-                Platform.runLater(() -> {
-                    //boolean isMove = false
-                    int haveEmptyCell;
-                    if (key.getCode() == KeyCode.DOWN) {
-                        GameMoves.moveDown();
-                    } else if (key.getCode() == KeyCode.UP) {
-                        GameMoves.moveUp();
-                        //boolean isMove = true
-                    } else if (key.getCode() == KeyCode.LEFT) {
-                        GameMoves.moveLeft();
-                    } else if (key.getCode() == KeyCode.RIGHT) {
-                        GameMoves.moveRight();
-                    }
-                    //this else statement is to restrict the whole keyboard except arrow letters to work when usin gthe game
-                    else{
-                        throw new RuntimeException("wrong key press");
-                    }
-                    GameScene.this.sumCellNumbersToScore();
-                    scoreText.setText(score + "");
-                    haveEmptyCell = GameScene.this.haveEmptyCell();
-                    //if isMove = true then ->
-                    if (haveEmptyCell == -1) {
-                        if (GameScene.this.canNotMove()) {
-                            primaryStage.setScene(endGameScene);
+            Platform.runLater(() -> {
+                //boolean isMove = false
+                int haveEmptyCell;
+                if (key.getCode() == KeyCode.DOWN) {
+                    GameMoves.moveDown();
+                } else if (key.getCode() == KeyCode.UP) {
+                    GameMoves.moveUp();
+                    //boolean isMove = true
+                } else if (key.getCode() == KeyCode.LEFT) {
+                    GameMoves.moveLeft();
+                } else if (key.getCode() == KeyCode.RIGHT) {
+                    GameMoves.moveRight();
+                }
+//esc button creation
+                else if (key.getCode() == KeyCode.ESCAPE){
+                       /*try {
+                            controller.switchToPauseMenu();
+                       } catch (IOException e) {
+                           throw new RuntimeException(e);
+                           //e.printStackTrace();
+                       }*/
+                    //when escape button clicked during gameplay , Pause menu appears
+                    try {
+                        Parent proot = FXMLLoader.load(getClass().getResource("Pause.fxml"));
+                        var scene = new Scene(proot);
+                        primaryStage.setScene(scene);
 
-                            EndGame.getInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score);
-                            root.getChildren().clear();
-                            score = 0;
-                        }
-                    } else if(haveEmptyCell == 1)
-                        GameScene.this.randomFillNumber(2);
-                });
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+                //this else statement is to restrict the whole keyboard except arrow letters to work when usin gthe game
+                else{
+                    throw new RuntimeException("wrong key press");
+                }
+                GameScene.this.sumCellNumbersToScore();
+                scoreText.setText(score + "");
+                haveEmptyCell = GameScene.this.haveEmptyCell();
+                //if isMove = true then ->
+                if (haveEmptyCell == -1) {
+                    if (GameScene.this.canNotMove()) {
+                        primaryStage.setScene(endGameScene);
+
+                        EndGame.getInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score);
+                        root.getChildren().clear();
+                        score = 0;
+                    }
+                } else if(haveEmptyCell == 1)
+                    GameScene.this.randomFillNumber(2);
             });
+        });
 
     }
-//getter method for cell that are used in GameMoves for game movement.
+
+    //getter method for cell that are used in GameMoves for game movement.
     public static Cell[][] getCells() {
         return cells;
     }
