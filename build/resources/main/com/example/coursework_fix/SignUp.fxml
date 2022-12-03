@@ -10,17 +10,15 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffc900;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursework_fix.Controller">
    <children>
-      <Label layoutX="165.0" layoutY="183.0" prefHeight="17.0" prefWidth="90.0" text="Username" />
+      <Label layoutX="127.0" layoutY="183.0" prefHeight="17.0" prefWidth="108.0" text="Create Username" />
       <TextField layoutX="243.0" layoutY="179.0" promptText="Username" />
-      <Label layoutX="165.0" layoutY="221.0" prefHeight="17.0" prefWidth="59.0" text="Password" />
+      <Label layoutX="127.0" layoutY="221.0" prefHeight="17.0" prefWidth="108.0" text="Create Password" />
       <PasswordField layoutX="243.0" layoutY="217.0" promptText="Password" />
-
-      <Button fx:id="LoginButton" layoutX="337.0" layoutY="275.0" mnemonicParsing="false" onAction="#switchtoMainMenu" style="-fx-background-color: #ff0000; -fx-border-image-width: 10; -fx-border-color: #000000;" text="Log In" textFill="#050505" />
-      <Text layoutX="155.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2048 Login">
+      <Text layoutX="213.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign UP">
          <font>
             <Font name="Curlz MT" size="66.0" />
          </font>
       </Text>
-      <Button fx:id="ppp" layoutX="516.0" layoutY="350.0" mnemonicParsing="false" onAction="#SignUpButton" text="Sign UP" />
+      <Button layoutX="473.0" layoutY="353.0" mnemonicParsing="false" text="Create Account" />
    </children>
 </Pane>
