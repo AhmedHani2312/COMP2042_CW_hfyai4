@@ -1,5 +1,5 @@
 //cellColour class added for refactoring moved from cell class.
-package com.example.coursework_fix;
+package com.example.coursework_fix.Cell;
 
 import javafx.scene.paint.Color;
 

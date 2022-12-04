@@ -7,16 +7,14 @@
 
 package com.example.coursework_fix;
 
+import com.example.coursework_fix.Gameplay.GameScene;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.scene.shape.Rectangle;
 
 import java.io.IOException;
 import java.util.Scanner;

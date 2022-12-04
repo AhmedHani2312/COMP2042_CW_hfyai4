@@ -1,4 +1,4 @@
-package com.example.coursework_fix;
+package com.example.coursework_fix.Gameplay;
 
 import javafx.event.EventHandler;
 import javafx.scene.Group;

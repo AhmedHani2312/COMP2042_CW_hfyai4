@@ -241,6 +241,7 @@ package com.example.coursework_fix;
 //public class Controller {
 //}
 
+import com.example.coursework_fix.Gameplay.GameScene;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

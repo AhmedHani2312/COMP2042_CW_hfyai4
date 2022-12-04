@@ -1,6 +1,8 @@
-package com.example.coursework_fix;
+package com.example.coursework_fix.Cell;
 
 
+import com.example.coursework_fix.Text.ChangingText;
+import com.example.coursework_fix.Text.TextMaker;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -12,17 +14,17 @@ public class Cell {
     private Text textClass;
     private boolean modify = false;
 
-    void setModify(boolean modify) {
+    public void setModify(boolean modify) {
         this.modify = modify;
     }
 
-    boolean getModify() {
+    public boolean getModify() {
         return modify;
     }
 
     //Constructor for cell class
 
-    Cell(double x, double y, double scale, Group root) {
+    public Cell(double x, double y, double scale, Group root) {
         rectangle = new Rectangle();
         rectangle.setX(x);
         rectangle.setY(y);
@@ -34,11 +36,11 @@ public class Cell {
         root.getChildren().add(rectangle);
     }
 
-    void setTextClass(Text textClass) {
+    public void setTextClass(Text textClass) {
         this.textClass = textClass;
     }
 
-    void changeCell(Cell cell) {
+    public void changeCell(Cell cell) {
 
         ChangingText text = new ChangingText();
         text.changeTwoText(textClass, cell.getTextClass());
@@ -55,7 +57,7 @@ public class Cell {
         cell.setColor(cell.getNumber());
     }
 
-    void adder(Cell cell) {
+    public void adder(Cell cell) {
         cell.getTextClass().setText((cell.getNumber() + this.getNumber()) + "");
         textClass.setText("0");
         root.getChildren().remove(textClass);
@@ -64,7 +66,7 @@ public class Cell {
     }
 
     //function to set color from new cellColour class refactored ,
-    void setColor(int number) {
+    public void setColor(int number) {
         new CellColor(number, rectangle).setColorByNumber(number);
     }
 /*void setColorByNumber(int number) {
@@ -109,15 +111,15 @@ public class Cell {
     }*/
 //    }
 
-    double getX() {
+    public double getX() {
         return rectangle.getX();
     }
 
-    double getY() {
+    public double getY() {
         return rectangle.getY();
     }
 
-    int getNumber() {
+    public int getNumber() {
         return Integer.parseInt(textClass.getText());
     }
 

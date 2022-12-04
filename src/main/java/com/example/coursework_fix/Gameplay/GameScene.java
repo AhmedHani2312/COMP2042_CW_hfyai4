@@ -1,5 +1,7 @@
-package com.example.coursework_fix;
+package com.example.coursework_fix.Gameplay;
 
+import com.example.coursework_fix.Cell.Cell;
+import com.example.coursework_fix.Text.TextMaker;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
@@ -14,7 +16,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Random;
 
-class GameScene {
+public class GameScene {
     private static int HEIGHT = 700;
     private static int numberOfCells = 4; //number of cells (this line is used to change the grid)
     private final static int distanceBetweenCells = 10;
@@ -31,7 +33,7 @@ class GameScene {
         LENGTH = (HEIGHT - ((numberOfCells + 1) * distanceBetweenCells)) / (double) numberOfCells;
     }
 
-    static double getLENGTH() {
+    public static double getLENGTH() {
         return LENGTH;
     }
 
@@ -258,7 +260,7 @@ class GameScene {
         }
     }
 
-    void game(Scene gameScene, Group root, Stage primaryStage, Scene endGameScene, Group endGameRoot) {
+    public void game(Scene gameScene, Group root, Stage primaryStage, Scene endGameScene, Group endGameRoot) {
         this.root = root;
         for (int i = 0; i < numberOfCells; i++) {
             for (int j = 0; j < numberOfCells; j++) {
