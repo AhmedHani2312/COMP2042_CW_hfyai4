@@ -3,8 +3,13 @@ package com.example.coursework_fix;
 import java.util.ArrayList;
 
 public class Account implements Comparable<Account> {
+
+    private static String Email;
+
     private long score = 0;
+    //added new
     private String userName;
+    private static String Password;
     private static ArrayList<Account> accounts = new ArrayList<>();
 
     public Account(String userName) {
@@ -18,6 +23,15 @@ public class Account implements Comparable<Account> {
 
     public void addToScore(long score) {
         this.score += score;
+    }
+    //creating get method for email
+    public static String getEmail(){
+        return Email;
+    }
+
+    //creating get method for password
+    public static String getPassword(){
+        return Password;
     }
 
     private long getScore() {

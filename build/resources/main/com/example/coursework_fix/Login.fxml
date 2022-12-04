@@ -21,6 +21,6 @@
             <Font name="Curlz MT" size="66.0" />
          </font>
       </Text>
-      <Button fx:id="ppp" layoutX="516.0" layoutY="350.0" mnemonicParsing="false" onAction="#SignUpButton" text="Sign UP" />
+      <Button fx:id="signup" layoutX="516.0" layoutY="350.0" mnemonicParsing="false" onAction="#SignUpButton" text="Sign UP" />
    </children>
 </Pane>

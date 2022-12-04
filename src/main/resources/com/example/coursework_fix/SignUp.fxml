@@ -8,17 +8,18 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffc900;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursework_fix.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffc900;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursework_fix.SignUpController">
    <children>
-      <Label layoutX="127.0" layoutY="183.0" prefHeight="17.0" prefWidth="108.0" text="Create Username" />
-      <TextField layoutX="243.0" layoutY="179.0" promptText="Username" />
-      <Label layoutX="127.0" layoutY="221.0" prefHeight="17.0" prefWidth="108.0" text="Create Password" />
-      <PasswordField layoutX="243.0" layoutY="217.0" promptText="Password" />
+      <Label layoutX="135.0" layoutY="183.0" prefHeight="17.0" prefWidth="108.0" text="Create Email" />
+      <TextField fx:id="email" layoutX="243.0" layoutY="179.0" promptText="Email" />
+      <Label layoutX="128.0" layoutY="221.0" prefHeight="17.0" prefWidth="108.0" text="Create Password" />
+      <PasswordField fx:id="password" layoutX="243.0" layoutY="217.0" promptText="Password" />
       <Text layoutX="213.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign UP">
          <font>
             <Font name="Curlz MT" size="66.0" />
          </font>
       </Text>
-      <Button layoutX="473.0" layoutY="353.0" mnemonicParsing="false" text="Create Account" />
+      <Button fx:id="CreateACC" layoutX="349.0" layoutY="259.0" mnemonicParsing="false" onAction="#CreateACCclicked" text="Create Account" />
+      <Button fx:id="Login" layoutX="473.0" layoutY="361.0" mnemonicParsing="false" onAction="#LoginButton" text="Go to Login Menu" />
    </children>
 </Pane>
