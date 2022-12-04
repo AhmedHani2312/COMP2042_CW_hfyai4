@@ -42,27 +42,26 @@ public class GameScene {
         Cell[][] emptyCells = new Cell[numberOfCells][numberOfCells];
         int a = 0;
         int b = 0;
-        int aForBound=0,bForBound=0;
+        int aForBound = 0, bForBound = 0;
         outer:
         for (int i = 0; i < numberOfCells; i++) {
             for (int j = 0; j < numberOfCells; j++) {
                 if (cells[i][j].getNumber() == 0) {
                     emptyCells[a][b] = cells[i][j];
-                    if (b < numberOfCells -1) {
-                        bForBound=b;
+                    if (b < numberOfCells - 1) {
+                        bForBound = b;
                         b++;
 
                     } else {
-                        aForBound=a;
+                        aForBound = a;
                         a++;
                         b = 0;
-                        if(a== numberOfCells)
+                        if (a == numberOfCells)
                             break outer;
                     }
                 }
             }
         }
-
 
 
         Text text;
@@ -71,8 +70,8 @@ public class GameScene {
         if (random.nextInt() % 2 == 0)
             putTwo = false;
         int xCell, yCell;
-        xCell = random.nextInt(aForBound+1);
-        yCell = random.nextInt(bForBound+1);
+        xCell = random.nextInt(aForBound + 1);
+        yCell = random.nextInt(bForBound + 1);
         if (putTwo) {
             text = textMaker.madeText("2", emptyCells[xCell][yCell].getX(), emptyCells[xCell][yCell].getY(), root);
             emptyCells[xCell][yCell].setTextClass(text);
@@ -87,12 +86,12 @@ public class GameScene {
     }
 
     //2048 NUMBER WHEN IT REACHES IT does not STOP.
-    private int  haveEmptyCell() {
+    private int haveEmptyCell() {
         for (int i = 0; i < numberOfCells; i++) {
             for (int j = 0; j < numberOfCells; j++) {
                 if (cells[i][j].getNumber() == 0)
                     return 1;
-                if(cells[i][j].getNumber() == 2048)
+                if (cells[i][j].getNumber() == 2048)
                     return 0;
             }
         }
@@ -252,7 +251,7 @@ public class GameScene {
     }
 
     private void sumCellNumbersToScore() {
-        //score=0;
+        score = 0;
         for (int i = 0; i < numberOfCells; i++) {
             for (int j = 0; j < numberOfCells; j++) {
                 score += cells[i][j].getNumber();
@@ -284,7 +283,7 @@ public class GameScene {
         randomFillNumber(1);
         randomFillNumber(1);
 
-        gameScene.addEventHandler(KeyEvent.KEY_PRESSED, key ->{
+        gameScene.addEventHandler(KeyEvent.KEY_PRESSED, key -> {
             Platform.runLater(() -> {
                 //boolean isMove = false
                 int haveEmptyCell;
@@ -299,7 +298,7 @@ public class GameScene {
                     GameMoves.moveRight();
                 }
 //esc button creation
-                else if (key.getCode() == KeyCode.ESCAPE){
+                else if (key.getCode() == KeyCode.ESCAPE) {
                        /*try {
                             controller.switchToPauseMenu();
                        } catch (IOException e) {
@@ -318,7 +317,7 @@ public class GameScene {
 
                 }
                 //this else statement is to restrict the whole keyboard except arrow letters to work when usin gthe game
-                else{
+                else {
                     throw new RuntimeException("wrong key press");
                 }
                 GameScene.this.sumCellNumbersToScore();
@@ -333,7 +332,7 @@ public class GameScene {
                         root.getChildren().clear();
                         score = 0;
                     }
-                } else if(haveEmptyCell == 1)
+                } else if (haveEmptyCell == 1)
                     GameScene.this.randomFillNumber(2);
             });
         });
