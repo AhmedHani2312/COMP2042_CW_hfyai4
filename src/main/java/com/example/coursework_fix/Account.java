@@ -8,12 +8,20 @@ public class Account implements Comparable<Account> {
 
     private long score = 0;
     //added new
-    private String userName;
+    //private String userName;
     private static String Password;
     private static ArrayList<Account> accounts = new ArrayList<>();
 
-    public Account(String userName) {
+   /* public Account(String userName) {
         this.userName = userName;
+    }*/
+
+    public static void setPassword(String password) {
+        Account.Password = password;
+    }
+
+    public static void setEmail(String email) {
+        Account.Email = email;
     }
 
     @Override
@@ -24,25 +32,25 @@ public class Account implements Comparable<Account> {
     public void addToScore(long score) {
         this.score += score;
     }
+
+
     //creating get method for email
-    public static String getEmail(){
+    public static String getEmail() {
         return Email;
     }
 
     //creating get method for password
-    public static String getPassword(){
+    public static String getPassword() {
         return Password;
     }
 
     private long getScore() {
         return score;
     }
+}
 
-    private String getUserName() {
-        return userName;
-    }
 
-    static Account accountHaveBeenExist(String userName) {
+    /*static Account accountHaveBeenExist(String userName) {
         for (Account account : accounts) {
             if (account.getUserName().equals(userName)) {
                 return account;
@@ -58,4 +66,4 @@ public class Account implements Comparable<Account> {
         return account;
     }
 
-}
+}*/

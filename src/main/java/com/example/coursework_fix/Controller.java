@@ -297,44 +297,43 @@ public class Controller {
     Media mp3MusicFile = new Media(new File("C:\\Users\\omen\\IdeaProjects\\coursework_fix\\src\\main\\resources\\com\\example\\coursework_fix\\UNHOLY.mp3").toURI().toString());
     MediaPlayer musicplayer = new MediaPlayer(mp3MusicFile);
 
-    // to link the login fxml page
-    public void switchtoLogin(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+    public static void SceneSwitcher(String fileName, ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Controller.class.getResource(fileName));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
 
+    // to link the login fxml page
+    public void switchtoLogin(ActionEvent event) throws IOException {
+        SceneSwitcher("Login.fxml", event);
     }
 
     //this functions goes to get name
     public void switchtoMainMenu(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("getName.fxml")); //8yr li menu law hn4el el getNamefxml
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        SceneSwitcher("Menu.fxml", event);
     }
 
     @FXML
     private Label label;
     String acc;
 
-    public void testSigned(ActionEvent event) {
-        //to test
-        label.setText("signed in");
-    }
+  //  public void testSigned(ActionEvent event) {
+  //      //to test
+  //      label.setText("signed in");
+  //  }
 
     //this function goes to main menu
-    public void gobacktoMain(ActionEvent event) throws IOException {
-        acc = account.getText();
-        System.out.println(acc);
-        Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+   // public void gobacktoMain(ActionEvent event) throws IOException {
+   //     acc = account.getText();
+   //     System.out.println(acc);
+   //     Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+   //     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+   //     scene = new Scene(root);
+   //     stage.setScene(scene);
+   //     stage.show();
+   // }
 
 
     //to switch to settings Menu.
@@ -451,6 +450,7 @@ public class Controller {
       stage.setScene(scene);
       stage.show();
   }
+
 
 
 

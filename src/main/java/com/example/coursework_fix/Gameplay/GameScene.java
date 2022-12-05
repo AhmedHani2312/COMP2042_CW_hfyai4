@@ -7,7 +7,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -38,7 +37,6 @@ public class GameScene {
     }
 
     private void randomFillNumber(int turn) {
-
         Cell[][] emptyCells = new Cell[numberOfCells][numberOfCells];
         int a = 0;
         int b = 0;
@@ -56,8 +54,7 @@ public class GameScene {
                         aForBound = a;
                         a++;
                         b = 0;
-                        if (a == numberOfCells)
-                            break outer;
+                        if (a == numberOfCells) break outer;
                     }
                 }
             }
@@ -67,11 +64,11 @@ public class GameScene {
         Text text;
         Random random = new Random();
         boolean putTwo = true;
-        if (random.nextInt() % 2 == 0)
-            putTwo = false;
+        if (random.nextInt() % 2 == 0) putTwo = false;
         int xCell, yCell;
         xCell = random.nextInt(aForBound + 1);
         yCell = random.nextInt(bForBound + 1);
+        //duplicate code find solution.
         if (putTwo) {
             text = textMaker.madeText("2", emptyCells[xCell][yCell].getX(), emptyCells[xCell][yCell].getY(), root);
             emptyCells[xCell][yCell].setTextClass(text);
@@ -89,10 +86,8 @@ public class GameScene {
     private int haveEmptyCell() {
         for (int i = 0; i < numberOfCells; i++) {
             for (int j = 0; j < numberOfCells; j++) {
-                if (cells[i][j].getNumber() == 0)
-                    return 1;
-                if (cells[i][j].getNumber() == 2048)
-                    return 0;
+                if (cells[i][j].getNumber() == 0) return 1;
+                if (cells[i][j].getNumber() == 2048) return 0;
             }
         }
         return -1;
@@ -100,12 +95,10 @@ public class GameScene {
 
 
     private boolean haveSameNumberNearly(int i, int j) {
-        if (i < numberOfCells - 1 && j < numberOfCells - 1) {
-            if (cells[i + 1][j].getNumber() == cells[i][j].getNumber())
-                return true;
-            if (cells[i][j + 1].getNumber() == cells[i][j].getNumber())
-                return true;
-        }
+        if (i < numberOfCells - 1 && j < numberOfCells - 1)
+            return (cells[i + 1][j].getNumber() == cells[i][j].getNumber()) ||
+                    (cells[i][j + 1].getNumber() == cells[i][j].getNumber());
+
         return false;
     }
 
@@ -133,12 +126,59 @@ public class GameScene {
         this.root = root;
         for (int i = 0; i < numberOfCells; i++) {
             for (int j = 0; j < numberOfCells; j++) {
-                cells[i][j] = new Cell((j) * LENGTH + (j + 1) * distanceBetweenCells,
-                        (i) * LENGTH + (i + 1) * distanceBetweenCells, LENGTH, root);
+                cells[i][j] = new Cell((j) * LENGTH + (j + 1) * distanceBetweenCells, (i) * LENGTH + (i + 1) * distanceBetweenCells, LENGTH, root);
             }
 
         }
 
+        Text scoreText = getScoreText(root);
+
+        randomFillNumber(1);
+        randomFillNumber(1);
+
+        gameScene.addEventHandler(KeyEvent.KEY_PRESSED, key -> Platform.runLater(() -> {
+            // boolean isMove = false
+            int haveEmptyCell;
+            // changed if statement to Switch case statement
+            gameMovement(primaryStage, key);
+
+            GameScene.this.sumCellNumbersToScore();
+            scoreText.setText(score + "");
+            haveEmptyCell = GameScene.this.haveEmptyCell();
+            //if isMove = true then ->
+            if (haveEmptyCell == -1) {
+                if (GameScene.this.canNotMove()) {
+                    primaryStage.setScene(endGameScene);
+
+                    EndGame.getInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score);
+                    root.getChildren().clear();
+                    score = 0;
+                }
+            } else if (haveEmptyCell == 1) GameScene.this.randomFillNumber(2);
+        }));
+    }
+
+    private void gameMovement(Stage primaryStage, KeyEvent key) {
+        switch (key.getCode()) {
+            case DOWN -> GameMoves.moveDown();
+            case UP -> GameMoves.moveUp();
+            case LEFT -> GameMoves.moveLeft();
+            case RIGHT -> GameMoves.moveRight();
+            case ESCAPE -> {
+                try {
+                    Parent proot = FXMLLoader.load(getClass().getResource("Pause.fxml"));
+                    var scene = new Scene(proot);
+                    primaryStage.setScene(scene);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            default -> throw new RuntimeException("wrong key press");
+        }
+    }
+
+    private Text getScoreText(Group root) {
         Text text = new Text();
         root.getChildren().add(text);
         text.setText("SCORE :");
@@ -149,58 +189,7 @@ public class GameScene {
         scoreText.relocate(750, 150);
         scoreText.setFont(Font.font(20));
         scoreText.setText("0");
-
-        randomFillNumber(1);
-        randomFillNumber(1);
-
-        gameScene.addEventHandler(KeyEvent.KEY_PRESSED, key -> {
-            Platform.runLater(() -> {
-                //boolean isMove = false
-                int haveEmptyCell;
-                if (key.getCode() == KeyCode.DOWN) {
-                    GameMoves.moveDown();
-                } else if (key.getCode() == KeyCode.UP) {
-                    GameMoves.moveUp();
-                    //boolean isMove = true
-                } else if (key.getCode() == KeyCode.LEFT) {
-                    GameMoves.moveLeft();
-                } else if (key.getCode() == KeyCode.RIGHT) {
-                    GameMoves.moveRight();
-                }
-//esc button creation
-                else if (key.getCode() == KeyCode.ESCAPE) {
-
-                    try {
-                        Parent proot = FXMLLoader.load(getClass().getResource("Pause.fxml"));
-                        var scene = new Scene(proot);
-                        primaryStage.setScene(scene);
-
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
-                }
-                //this else statement is to restrict the whole keyboard except arrow letters to work when usin gthe game
-                else {
-                    throw new RuntimeException("wrong key press");
-                }
-                GameScene.this.sumCellNumbersToScore();
-                scoreText.setText(score + "");
-                haveEmptyCell = GameScene.this.haveEmptyCell();
-                //if isMove = true then ->
-                if (haveEmptyCell == -1) {
-                    if (GameScene.this.canNotMove()) {
-                        primaryStage.setScene(endGameScene);
-
-                        EndGame.getInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score);
-                        root.getChildren().clear();
-                        score = 0;
-                    }
-                } else if (haveEmptyCell == 1)
-                    GameScene.this.randomFillNumber(2);
-            });
-        });
-
+        return scoreText;
     }
 
     //getter method for cell that are used in GameMoves for game movement.

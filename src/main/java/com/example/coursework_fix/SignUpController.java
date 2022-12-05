@@ -1,3 +1,5 @@
+//this class is responsible for signup menu
+
 package com.example.coursework_fix;
 
 import javafx.event.ActionEvent;
@@ -44,6 +46,11 @@ public class SignUpController implements Initializable {
 
         password.setText(Account.getPassword());
 
+        if (Account.getEmail() != null){
+            email.setDisable(true);
+            password.setDisable(true);
+        }
+
     }
 
 
@@ -75,7 +82,7 @@ public class SignUpController implements Initializable {
         addLine();
     }
 
-    //this function is created to return back from signupmenu to MainMenu
+    //this function is created to return  from SignUpMenu to MainMenu.
     public void LoginButton(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -84,4 +91,7 @@ public class SignUpController implements Initializable {
         stage.show();
     }
 }
+
+
+
 
