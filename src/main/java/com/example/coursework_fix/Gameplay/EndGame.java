@@ -34,8 +34,9 @@ public class EndGame {
         text.setFont(Font.font(80));
         root.getChildren().add(text);
 
-        Text scoreText = new Text(score + "");
+        Text scoreText = new Text("Score: "+score );
         scoreText.setFill(Color.BLACK); //score color in end of game
+
         scoreText.relocate(250, 600);
         scoreText.setFont(Font.font(80));
         root.getChildren().add(scoreText);

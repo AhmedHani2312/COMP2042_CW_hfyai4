@@ -55,7 +55,7 @@ public class SignUpController implements Initializable {
 
 
     private void addLine() {
-        String line = email.getText() + "," + password.getText() +"\n";
+        String line = "\n"+ email.getText() + "," + password.getText() + ","+"0"+"\n";
 
         FileWriter file_writer;
         try {

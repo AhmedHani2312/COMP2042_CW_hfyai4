@@ -12,11 +12,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class LoginController {
@@ -27,7 +24,11 @@ public class LoginController {
     @FXML
     private PasswordField Password;
 
+    @FXML
+    private Button LoginButton;
+
     Controller controller = new Controller();
+
 
 
     public void SignUpButton(ActionEvent event) throws IOException {
@@ -35,6 +36,7 @@ public class LoginController {
         // event holds the button/window/scene information
         // the string fileName is the fxml file name you want to change to
         Controller.SceneSwitcher("SignUp.fxml", event);
+
     }
 
     //go to main menu without  registering INTO the  game.
@@ -59,6 +61,7 @@ public class LoginController {
                 String[] profile = line.split(",");
                 String USER = profile[0];
                 String password = profile[1];
+                String score = profile[2];
                 //Email Matched!
                 if (USER.trim().equals(email.getText())) { //Note trim() method remove space from front and behind of string if there is any
                     //Now checking if password match
@@ -73,6 +76,7 @@ public class LoginController {
 
                         Account.setEmail(USER);
                         Account.setPassword(password);
+                        Account.setScore(score);
                         System.out.println(USER);
                         System.out.println(password);
                         controller.switchtoMainMenu(event);
@@ -99,7 +103,7 @@ public class LoginController {
                 }*/
             }
         }
-        controller.switchtoLogin(event);
+        //controller.SceneSwitcher("Menu.fxml",event);
         if (Account.getEmail() == null) {
             System.out.println("No such email");
             //error msg

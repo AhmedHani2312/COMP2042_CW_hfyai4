@@ -2,6 +2,7 @@ package com.example.coursework_fix.Gameplay;
 
 import com.example.coursework_fix.Cell.Cell;
 import com.example.coursework_fix.Text.TextMaker;
+import com.example.coursework_fix.leaderBoard;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
@@ -22,8 +23,13 @@ public class GameScene {
     private static double LENGTH = (HEIGHT - ((numberOfCells + 1) * distanceBetweenCells)) / (double) numberOfCells;
     private TextMaker textMaker = TextMaker.getSingleInstance();
     private static Cell[][] cells = new Cell[numberOfCells][numberOfCells];
-    private Group root;
+    private static Group root;
     private long score = 0;
+    leaderBoard leaderboard = new leaderBoard(); // linking with leaderboard class object
+
+
+
+
 
     /*
      * @param number , number if cells to be set*/
@@ -36,7 +42,11 @@ public class GameScene {
         return LENGTH;
     }
 
-    private void randomFillNumber(int turn) {
+    public static Group getroot() {
+        return root;
+    }
+
+    void randomFillNumber(int turn) {
         Cell[][] emptyCells = new Cell[numberOfCells][numberOfCells];
         int a = 0;
         int b = 0;
@@ -55,6 +65,7 @@ public class GameScene {
                         a++;
                         b = 0;
                         if (a == numberOfCells) break outer;
+
                     }
                 }
             }
@@ -83,7 +94,7 @@ public class GameScene {
     }
 
     //2048 NUMBER WHEN IT REACHES IT does not STOP.
-    private int haveEmptyCell() {
+    int haveEmptyCell() {
         for (int i = 0; i < numberOfCells; i++) {
             for (int j = 0; j < numberOfCells; j++) {
                 if (cells[i][j].getNumber() == 0) return 1;
@@ -102,7 +113,7 @@ public class GameScene {
         return false;
     }
 
-    private boolean canNotMove() {
+    boolean canNotMove() {
         for (int i = 0; i < numberOfCells; i++) {
             for (int j = 0; j < numberOfCells; j++) {
                 if (haveSameNumberNearly(i, j)) {
@@ -113,7 +124,7 @@ public class GameScene {
         return true;
     }
 
-    private void sumCellNumbersToScore() {
+    void sumCellNumbersToScore() {
         score = 0;
         for (int i = 0; i < numberOfCells; i++) {
             for (int j = 0; j < numberOfCells; j++) {
@@ -151,6 +162,9 @@ public class GameScene {
                     primaryStage.setScene(endGameScene);
 
                     EndGame.getInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score);
+                    //this will take the score and put it inside the leaderBoad class.
+                    leaderboard.updateHighscore(score);
+
                     root.getChildren().clear();
                     score = 0;
                 }
@@ -158,7 +172,7 @@ public class GameScene {
         }));
     }
 
-    private void gameMovement(Stage primaryStage, KeyEvent key) {
+    void gameMovement(Stage primaryStage, KeyEvent key) {
         switch (key.getCode()) {
             case DOWN -> GameMoves.moveDown();
             case UP -> GameMoves.moveUp();
@@ -178,7 +192,7 @@ public class GameScene {
         }
     }
 
-    private Text getScoreText(Group root) {
+    Text getScoreText(Group root) {
         Text text = new Text();
         root.getChildren().add(text);
         text.setText("SCORE :");

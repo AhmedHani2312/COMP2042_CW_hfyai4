@@ -2,11 +2,11 @@ package com.example.coursework_fix;
 
 import java.util.ArrayList;
 
-public class Account implements Comparable<Account> {
+public class Account  {
 
     private static String Email;
 
-    private long score = 0;
+    private static String score ;
     //added new
     //private String userName;
     private static String Password;
@@ -24,14 +24,14 @@ public class Account implements Comparable<Account> {
         Account.Email = email;
     }
 
-    @Override
-    public int compareTo(Account o) {
-        return Long.compare(o.getScore(), score);
+    public static void setScore(String score){
+        Account.score = score;
     }
 
-    public void addToScore(long score) {
-        this.score += score;
-    }
+    //@Override
+    //public int compareTo(Account o) {
+      //  return Long.compare(o.getScore(), score);
+    //}
 
 
     //creating get method for email
@@ -44,7 +44,7 @@ public class Account implements Comparable<Account> {
         return Password;
     }
 
-    private long getScore() {
+    public static String getScore() {
         return score;
     }
 }

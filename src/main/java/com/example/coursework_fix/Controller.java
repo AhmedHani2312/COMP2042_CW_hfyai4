@@ -269,6 +269,8 @@ import java.util.Optional;
  * This class is mainly used to switch between the scenes in the game
  */
 public class Controller {
+    public Object SceneSwitcher;
+
     public Controller() {
     }
 
@@ -276,7 +278,7 @@ public class Controller {
     private TextField account;
     static final int WIDTH = 900;
     static final int HEIGHT = 900;
-    private  Stage stage;
+    static Stage stage;
 
     private static Scene scene;
     private static Scene gScene; //another copy of game scene
@@ -297,19 +299,23 @@ public class Controller {
     Media mp3MusicFile = new Media(new File("C:\\Users\\omen\\IdeaProjects\\coursework_fix\\src\\main\\resources\\com\\example\\coursework_fix\\UNHOLY.mp3").toURI().toString());
     MediaPlayer musicplayer = new MediaPlayer(mp3MusicFile);
 
-    public static void SceneSwitcher(String fileName, ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Controller.class.getResource(fileName));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    public static void SceneSwitcher(String fileName, ActionEvent event) {
+
+        try { Parent root = FXMLLoader.load(Controller.class.getResource(fileName));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     // to link the login fxml page
-    public void switchtoLogin(ActionEvent event) throws IOException {
+   /* public void switchtoLogin(ActionEvent event) throws IOException {
         SceneSwitcher("Login.fxml", event);
     }
-
+*/
     //this functions goes to get name
     public void switchtoMainMenu(ActionEvent event) throws IOException {
         SceneSwitcher("Menu.fxml", event);
@@ -354,8 +360,8 @@ public class Controller {
      */
     public void switchToGameScene(ActionEvent event) throws IOException {
         Group endgameRoot = new Group();
-        Scene endGameScene = new Scene(endgameRoot, WIDTH, HEIGHT, Color.rgb(250, 20, 100, 0.2));
-        scene = new Scene(gameRoot, WIDTH, HEIGHT, Color.rgb(189, 177, 92));
+        Scene endGameScene = new Scene(endgameRoot, WIDTH, HEIGHT, Color.RED);
+        scene = new Scene(gameRoot, WIDTH, HEIGHT, Color.rgb(255, 165, 0));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         //gScene=gameScene; //gets copy of scene
