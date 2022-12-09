@@ -14,7 +14,7 @@ public class leaderBoard {
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
             String line;
-            System.out.println("fuck this is working");
+           
             while ((line = br.readLine()) != null) {
                 if (line.contains(username)) {
                     String[] profile = line.split(",");
