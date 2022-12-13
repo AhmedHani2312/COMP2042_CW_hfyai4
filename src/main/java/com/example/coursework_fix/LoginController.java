@@ -9,11 +9,17 @@ import java.util.EventObject;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class LoginController {
@@ -26,9 +32,19 @@ public class LoginController {
 
     @FXML
     private Button LoginButton;
+    //responsible for color picker
+    @FXML
+    private Pane myPane;
+    @FXML
+    private ColorPicker myColorPicker;
+
+    public void changeColor(ActionEvent event) {
+        Color myColor = myColorPicker.getValue();
+        myPane.setBackground(new Background(new BackgroundFill(myColor, CornerRadii.EMPTY, Insets.EMPTY)));
+
+    }
 
     Controller controller = new Controller();
-
 
 
     public void SignUpButton(ActionEvent event) throws IOException {
@@ -84,23 +100,6 @@ public class LoginController {
                     }
                 }
 
-                /*else if (Account.getEmail() == null) {
-                    System.out.println("No such email");
-                    //error msg
-
-                    Alert msg = new Alert(AlertType.ERROR);
-                    msg.setTitle(email.getText());
-                    msg.setContentText("No such Email : " + email.getText());
-                    msg.showAndWait();
-
-                }
-                else if (Account.getPassword()== null) {
-                    System.out.println("No such email");
-                    Alert msg = new Alert(AlertType.ERROR);
-                    msg.setTitle(Password.getText());
-                    msg.setContentText("Wrong password");
-                    msg.showAndWait();
-                }*/
             }
         }
         //controller.SceneSwitcher("Menu.fxml",event);

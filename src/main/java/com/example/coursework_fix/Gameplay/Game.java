@@ -17,6 +17,7 @@
 //    private static final int HEIGHT =700;
 //    private static double LENGTH = (HEIGHT - ((numberOfCells + 1) * distanceBetweenCells)) / (double) numberOfCells;
 //
+//
 //    public void game() {
 //        this.root = root;
 //        GameScene gamescene = new GameScene();

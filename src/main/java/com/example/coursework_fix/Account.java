@@ -50,20 +50,3 @@ public class Account  {
 }
 
 
-    /*static Account accountHaveBeenExist(String userName) {
-        for (Account account : accounts) {
-            if (account.getUserName().equals(userName)) {
-                return account;
-            }
-        }
-        return null;
-
-    }
-
-    static Account makeNewAccount(String userName) {
-        Account account = new Account(userName);
-        accounts.add(account);
-        return account;
-    }
-
-}*/

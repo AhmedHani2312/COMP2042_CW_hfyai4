@@ -12,7 +12,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.Random;
 
@@ -26,10 +25,6 @@ public class GameScene {
     private static Group root;
     private long score = 0;
     leaderBoard leaderboard = new leaderBoard(); // linking with leaderboard class object
-
-
-
-
 
     /*
      * @param number , number if cells to be set*/
@@ -137,7 +132,8 @@ public class GameScene {
         this.root = root;
         for (int i = 0; i < numberOfCells; i++) {
             for (int j = 0; j < numberOfCells; j++) {
-                cells[i][j] = new Cell((j) * LENGTH + (j + 1) * distanceBetweenCells, (i) * LENGTH + (i + 1) * distanceBetweenCells, LENGTH, root);
+                //the 45 below is responsible to make all the game in the center away from the borders.
+                cells[i][j] = new Cell((j) * LENGTH + (j + 1) * distanceBetweenCells + 45, (i) * LENGTH + (i + 1) * distanceBetweenCells, LENGTH, root);
             }
 
         }
@@ -159,9 +155,11 @@ public class GameScene {
             //if isMove = true then ->
             if (haveEmptyCell == -1) {
                 if (GameScene.this.canNotMove()) {
-                    primaryStage.setScene(endGameScene);
 
-                    EndGame.getInstance().endGameShow(endGameScene, endGameRoot, primaryStage, score);
+                    primaryStage.setScene(endGameScene);
+                    Stage endgamePOP = new Stage();
+                    //endgamePOP.setScene(endGameScene);
+                    PopUpEndGame.getInstance().endGameShow(endGameRoot, primaryStage, endgamePOP, score);
                     //this will take the score and put it inside the leaderBoad class.
                     leaderboard.updateHighscore(score);
 
@@ -187,7 +185,7 @@ public class GameScene {
                     e.printStackTrace();
                 }
             }
-
+            //this else statement is to restrict the whole keyboard except arrow letters to work when usin gthe game
             default -> throw new RuntimeException("wrong key press");
         }
     }

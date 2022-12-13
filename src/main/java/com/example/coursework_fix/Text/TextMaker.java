@@ -24,28 +24,13 @@ public class TextMaker {
         double fontSize = (3 * length) / 7.0;
         Text text = new Text(input);
         text.setFont(Font.font(fontSize));
-        text.relocate((xCell + (1.2)* length / 7.0), (yCell + 2 * length / 7.0));
+        text.relocate((xCell + (1.2) * length / 7.0), (yCell + 2 * length / 7.0));
         text.setFill(Color.WHITE);
 
         return text;
     }
 
     // refacotr from text maker class to a new class
-//     static void changeTwoText(Text first, Text second) {
-//        String temp;
-//        temp = first.getText();
-//        first.setText(second.getText());
-//        second.setText(temp);
-//
-//        double tempNumber;
-//        tempNumber = first.getX();
-//        first.setX(second.getX());
-//        second.setX(tempNumber);
-//
-//        tempNumber = first.getY();
-//        first.setY(second.getY());
-//        second.setY(tempNumber);
-//    }
 
 
 }

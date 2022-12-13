@@ -60,7 +60,7 @@ public class Main extends Application {
       //c1 Scene accountScene = new Scene(accountRoot, WIDTH, HEIGHT, Color.rgb(150, 20, 100, 0.2));
       //c1 Group getAccountRoot = new Group();
       //c1 Scene getAccountScene = new Scene(getAccountRoot, WIDTH, HEIGHT, Color.rgb(200, 20, 100, 0.2));
-      //c1 Group endgameRoot = new Group();
+       Group endgameRoot = new Group();
       //c1 Scene endGameScene = new Scene(endgameRoot, WIDTH, HEIGHT, Color.rgb(250, 20, 100, 0.2));
       //c1 Group rankRoot = new Group();
       //c1 Scene rankScene = new Scene(rankRoot, WIDTH, HEIGHT, Color.rgb(250, 50, 120, 0.3));
@@ -83,11 +83,12 @@ public class Main extends Application {
         Scene scene =new Scene(root);//ii
         Group gameRoot = new Group();
         setGameRoot(gameRoot);
+        Scene endgamepop = new Scene(endgameRoot, WIDTH, HEIGHT, Color.rgb(189, 177, 92));
         Scene gameScene = new Scene(gameRoot, WIDTH, HEIGHT, Color.rgb(189, 177, 92));
         setGameScene(gameScene);
 
         primaryStage.setScene(scene);
-        //c3 game.game(gameScene, gameRoot, primaryStage, endGameScene, endgameRoot);
+         game.game(gameScene, gameRoot, primaryStage, endgamepop, endgameRoot);
         primaryStage.show();
         //
     }

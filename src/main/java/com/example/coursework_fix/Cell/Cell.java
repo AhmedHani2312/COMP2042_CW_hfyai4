@@ -69,47 +69,7 @@ public class Cell {
     public void setColor(int number) {
         new CellColor(number, rectangle).setColorByNumber(number);
     }
-/*void setColorByNumber(int number) {
-    switch (number) {
-        case 0:
-            rectangle.setFill(Color.rgb(224, 226, 226, 0.5));
-            break;
-        case 2:
-            rectangle.setFill(Color.rgb(232, 255, 100, 0.5));
-            break;
-        case 4:
-            rectangle.setFill(Color.rgb(232, 220, 50, 0.5));
-            break;
-        case 8:
-            rectangle.setFill(Color.rgb(232, 200, 44, 0.8));
-            break;
-        case 16:
-            rectangle.setFill(Color.rgb(232, 170, 44, 0.8));
-            break;
-        case 32:
-            rectangle.setFill(Color.rgb(180, 120, 44, 0.7));
-            break;
-        case 64:
-            rectangle.setFill(Color.rgb(180, 100, 44, 0.7));
-            break;
-        case 128:
-            rectangle.setFill(Color.rgb(180, 80, 44, 0.7));
-            break;
-        case 256:
-            rectangle.setFill(Color.rgb(180, 60, 44, 0.8));
-            break;
-        case 512:
-            rectangle.setFill(Color.rgb(180, 30, 44, 0.8));
-            break;
-        case 1024:
-            rectangle.setFill(Color.rgb(250, 0, 44, 0.8));
-            break;
-        case 2048:
-            rectangle.setFill(Color.rgb(250,0,0,1));
 
-
-    }*/
-//    }
 
     public double getX() {
         return rectangle.getX();
@@ -126,7 +86,6 @@ public class Cell {
     private Text getTextClass() {
         return textClass;
     }
-
 }
 
 
