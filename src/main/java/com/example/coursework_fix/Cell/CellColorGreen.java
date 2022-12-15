@@ -24,11 +24,11 @@ public class CellColorGreen implements CellColorBase {
         colorMap.put(16, Color.rgb(23, 170, 44, 0.8));
         colorMap.put(32, Color.rgb(18, 120, 44, 0.7));
         colorMap.put(64, Color.rgb(18, 100, 44, 0.7));
-        colorMap.put(128, Color.rgb(18, 80, 44, 0.7));
+        colorMap.put(128, Color.rgb(28, 120, 8, 0.7));
         colorMap.put(256, Color.rgb(18, 60, 44, 0.8));
-        colorMap.put(512, Color.rgb(18, 30, 44, 0.8));
-        colorMap.put(1024, Color.rgb(25, 0, 44, 0.8));
-        colorMap.put(2048, Color.rgb(25, 0, 0, 1));
+        colorMap.put(512, Color.rgb(18, 62, 10, 0.8));
+        colorMap.put(1024, Color.rgb(18, 64, 12, 0.8));
+        colorMap.put(2048, Color.rgb(18, 60, 13, 1));
 
 
         rectangle.setFill(colorMap.get(number));

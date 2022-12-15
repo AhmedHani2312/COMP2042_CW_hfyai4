@@ -13,8 +13,8 @@ public class CellColor implements CellColorBase {
         this.number = number;
         this.rectangle = rectangle;
     }
-    // moved all switch statements to hash map so we just have one call of setFill()
-    // this is faster than going through every single switch statement to get to the desired one
+    // moved all switch statements to ش hash map ,therefore we just have one call of setFill()
+    // this is faster than going through every single switch statement to get to the desired one.
     @Override
     public void setColorByNumber(int number) {
         HashMap<Integer, Color> colorMap = new HashMap<>();

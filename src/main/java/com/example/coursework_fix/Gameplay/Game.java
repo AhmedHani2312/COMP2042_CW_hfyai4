@@ -1,18 +1,28 @@
 package com.example.coursework_fix.Gameplay;
 
 import com.example.coursework_fix.Cell.Cell;
+import com.example.coursework_fix.Controller;
 import com.example.coursework_fix.Text.TextMaker;
 import com.example.coursework_fix.Leaderboard;
 import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Random;
 //The below functions are taken from GameScene class have been refactored here in a new class!
 public class Game {
+
+
+       // primaryStage.close();
+    //Button BackToHomePage = new Button("Back to Main Menu");
+
     Leaderboard leaderboard = new Leaderboard(); // linking with leaderboard class object
 
     private static int HEIGHT = 700;
@@ -43,7 +53,39 @@ public class Game {
 
         }
 
+        //adding button to main menu for the user in game
         Text scoreText = GameScene.getScoreText(root);
+        Button mainMenuButton = new Button();
+        mainMenuButton.setText("Back to Main Menu");
+        mainMenuButton.setPrefSize(150, 30);
+        mainMenuButton.setTextFill(Color.RED);
+        mainMenuButton.relocate(740,200);
+        mainMenuButton.setFont(Font.font(15));
+        root.getChildren().add(mainMenuButton);
+        mainMenuButton.setFocusTraversable(false);
+        mainMenuButton.setOnAction(e -> {
+            try {
+                new Controller().switchtoMainMenu( e);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
+
+        Button quitButton = new Button();
+        quitButton.setText("Quit Game");
+        quitButton.setPrefSize(150, 30);
+        quitButton.relocate(740,250);
+
+        quitButton.setTextFill(Color.RED);
+        quitButton.setFont(Font.font(15));
+        root.getChildren().add(quitButton);
+        quitButton.setOnAction(e -> {
+            primaryStage.close();
+
+        });
+
+
+
 
         randomFillNumber(1);
         randomFillNumber(1);

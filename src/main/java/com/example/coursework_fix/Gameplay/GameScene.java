@@ -1,13 +1,16 @@
 package com.example.coursework_fix.Gameplay;
 
 import com.example.coursework_fix.Cell.Cell;
+import com.example.coursework_fix.Controller;
 import com.example.coursework_fix.Text.TextMaker;
 import com.example.coursework_fix.Leaderboard;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -15,6 +18,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class GameScene {
+    //Button BackToHomePage = new Button("Back to Main Menu");
+
     private static int HEIGHT = 700;
     private static int numberOfCells = 4; //number of cells (this line is used to change the grid)
     private final static int distanceBetweenCells = 10;

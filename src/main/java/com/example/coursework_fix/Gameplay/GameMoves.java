@@ -1,6 +1,4 @@
 //i refactored from GameScene class the game movement methods  (moveLeft,right,up,down,isValidDesH ,passDestination,isValidDesV, )
-
-
 package com.example.coursework_fix.Gameplay;
 
 import com.example.coursework_fix.Cell.Cell;

@@ -14,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -126,7 +127,8 @@ public class Controller implements Initializable {
     public void switchToGameScene(ActionEvent event) throws IOException {
         Group endgameRoot = new Group();
         Scene endGameScene = new Scene(endgameRoot, WIDTH, HEIGHT, Color.RED);
-        scene = new Scene(gameRoot, WIDTH, HEIGHT, Color.rgb(160, 150, 200));
+        //to link theme color with gamscene.
+        scene = new Scene(gameRoot, WIDTH, HEIGHT, Paint.valueOf(LoginController.ThemeColor));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         //gScene=gameScene; //gets copy of scene
@@ -172,7 +174,6 @@ public class Controller implements Initializable {
         //gScene=gameScene; //gets copy of scene
         game.game(scene, gameRoot, stage, endGameScene, endgameRoot);
         stage.show();
-
     }
     //sign up button to create an email from login menu
 
