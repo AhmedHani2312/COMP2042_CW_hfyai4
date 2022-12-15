@@ -4,15 +4,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.EventObject;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Background;
@@ -20,7 +15,7 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
+
 
 public class LoginController {
 
@@ -46,7 +41,6 @@ public class LoginController {
 
     Controller controller = new Controller();
 
-
     public void SignUpButton(ActionEvent event) throws IOException {
         // use this function anywhere to switch scenes whenever a button is clicked
         // event holds the button/window/scene information
@@ -59,7 +53,6 @@ public class LoginController {
     public void DemoButton(ActionEvent event) throws IOException {
         Controller.SceneSwitcher("Menu.fxml", event);
     }
-
 
     @FXML
     public void loginButton(ActionEvent event) throws IOException { //switch to main menu
@@ -102,7 +95,6 @@ public class LoginController {
 
             }
         }
-        //controller.SceneSwitcher("Menu.fxml",event);
         if (Account.getEmail() == null) {
             System.out.println("No such email");
             //error msg

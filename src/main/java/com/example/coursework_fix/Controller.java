@@ -1,6 +1,6 @@
 package com.example.coursework_fix;
 
-import com.example.coursework_fix.Gameplay.GameScene;
+import com.example.coursework_fix.Gameplay.Game;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,7 +27,7 @@ import java.util.ResourceBundle;
 
 
 /**
- * creates emplooyee with last name
+ * creates employee with last name
  * The employee last name
  */
 
@@ -84,14 +84,13 @@ public class Controller implements Initializable {
 
     Group gameRoot = new Group();
 
-    GameScene game = new GameScene();
+    Game game = new Game();
 
     //reference to media player used in SoundON and SoundOff from scene builder-settings
     Media mp3MusicFile = new Media(new File("C:\\Users\\omen\\IdeaProjects\\coursework_fix\\src\\main\\resources\\com\\example\\coursework_fix\\UNHOLY.mp3").toURI().toString());
     MediaPlayer musicplayer = new MediaPlayer(mp3MusicFile);
 
     public static void SceneSwitcher(String fileName, ActionEvent event) throws IOException {
-
         try {
             Parent root = FXMLLoader.load(Controller.class.getResource(fileName));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -113,12 +112,10 @@ public class Controller implements Initializable {
         SceneSwitcher("Menu.fxml", event);
     }
 
-
     //to switch to settings Menu.
     public void gobacktoSettingsMenu(ActionEvent event) throws IOException {
         SceneSwitcher("Settings.fxml", event);
     }
-
 
     /**
      * below switches the scene from MainMenu to the game itself
@@ -144,9 +141,7 @@ public class Controller implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
     }
-
 
     /**
      * this code part below will exit from the game
@@ -154,25 +149,11 @@ public class Controller implements Initializable {
      * @param event
      */
     public void QuitButton(ActionEvent event) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Quit Dialog");
-        alert.setHeaderText("Exit this page");
-        alert.setContentText("Are you sure you want to exit this page?");
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK) {
-            System.exit(0);
-        }
+        showPopup("Quit Dialog", "Exit this page", "Are you sure you want to exit this page?");
     }
 
     public void HelpButton(ActionEvent event) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Help");
-        alert.setHeaderText(" -Press arrow keys to move all Tiles \n -When two tiles with the same number touch,They merge into One!It is over when the board Fills up \n -Join the numbers and Challenge yourself to get the 2048 TILE");
-        alert.setContentText(" -OK to EXIT\n -Cancel to continue Playing!");
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK) {
-            System.exit(0);
-        }
+        showPopup("Help", " -Press arrow keys to move all Tiles \n -When two tiles with the same number touch,They merge into One!It is over when the board Fills up \n -Join the numbers and Challenge yourself to get the 2048 TILE", " -OK to EXIT\n -Cancel to continue Playing!");
     }
 
     public void leaderBoardButton(ActionEvent event) throws IOException {
@@ -181,6 +162,7 @@ public class Controller implements Initializable {
 
 
     //pause menu button related
+
     public void RestartButton(ActionEvent event) {
         Group endgameRoot = new Group();
         Scene endGameScene = new Scene(endgameRoot, WIDTH, HEIGHT, Color.RED);
@@ -192,12 +174,11 @@ public class Controller implements Initializable {
         stage.show();
 
     }
-
     //sign up button to create an email from login menu
+
     public void SignUpButton(ActionEvent event) throws IOException {
         SceneSwitcher("SignUp.fxml", event);
     }
-
 
     public void BackButton(ActionEvent event) throws IOException {
         SceneSwitcher("Menu.fxml", event);
@@ -217,4 +198,45 @@ public class Controller implements Initializable {
         musicplayer.pause();
     }
 
+    //used in HelpButton , QuitButton and leaderboardButton
+    private void showPopup(String title, String headerText, String contentText) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(headerText);
+        alert.setContentText(contentText);
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            System.exit(0);
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

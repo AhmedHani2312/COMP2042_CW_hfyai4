@@ -14,13 +14,6 @@ public class Cell {
     private Text textClass;
     private boolean modify = false;
 
-    public void setModify(boolean modify) {
-        this.modify = modify;
-    }
-
-    public boolean getModify() {
-        return modify;
-    }
 
     //Constructor for cell class
 
@@ -82,6 +75,16 @@ public class Cell {
     public int getNumber() {
         return Integer.parseInt(textClass.getText());
     }
+
+
+    public void setModify(boolean modify) {
+        this.modify = modify;
+    }
+
+    public boolean getModify() {
+        return modify;
+    }
+
 
     private Text getTextClass() {
         return textClass;

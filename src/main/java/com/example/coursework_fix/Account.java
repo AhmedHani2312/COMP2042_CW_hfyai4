@@ -12,10 +12,6 @@ public class Account  {
     private static String Password;
     private static ArrayList<Account> accounts = new ArrayList<>();
 
-   /* public Account(String userName) {
-        this.userName = userName;
-    }*/
-
     public static void setPassword(String password) {
         Account.Password = password;
     }
@@ -27,12 +23,6 @@ public class Account  {
     public static void setScore(String score){
         Account.score = score;
     }
-
-    //@Override
-    //public int compareTo(Account o) {
-      //  return Long.compare(o.getScore(), score);
-    //}
-
 
     //creating get method for email
     public static String getEmail() {

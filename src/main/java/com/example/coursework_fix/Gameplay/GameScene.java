@@ -3,7 +3,6 @@ package com.example.coursework_fix.Gameplay;
 import com.example.coursework_fix.Cell.Cell;
 import com.example.coursework_fix.Text.TextMaker;
 import com.example.coursework_fix.leaderBoard;
-import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Parent;
@@ -12,8 +11,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
 import java.io.IOException;
-import java.util.Random;
 
 public class GameScene {
     private static int HEIGHT = 700;
@@ -41,52 +40,6 @@ public class GameScene {
         return root;
     }
 
-    void randomFillNumber(int turn) {
-        Cell[][] emptyCells = new Cell[numberOfCells][numberOfCells];
-        int a = 0;
-        int b = 0;
-        int aForBound = 0, bForBound = 0;
-        outer:
-        for (int i = 0; i < numberOfCells; i++) {
-            for (int j = 0; j < numberOfCells; j++) {
-                if (cells[i][j].getNumber() == 0) {
-                    emptyCells[a][b] = cells[i][j];
-                    if (b < numberOfCells - 1) {
-                        bForBound = b;
-                        b++;
-
-                    } else {
-                        aForBound = a;
-                        a++;
-                        b = 0;
-                        if (a == numberOfCells) break outer;
-
-                    }
-                }
-            }
-        }
-
-
-        Text text;
-        Random random = new Random();
-        boolean putTwo = true;
-        if (random.nextInt() % 2 == 0) putTwo = false;
-        int xCell, yCell;
-        xCell = random.nextInt(aForBound + 1);
-        yCell = random.nextInt(bForBound + 1);
-        //duplicate code find solution.
-        if (putTwo) {
-            text = textMaker.madeText("2", emptyCells[xCell][yCell].getX(), emptyCells[xCell][yCell].getY(), root);
-            emptyCells[xCell][yCell].setTextClass(text);
-            root.getChildren().add(text);
-            emptyCells[xCell][yCell].setColor(2);
-        } else {
-            text = textMaker.madeText("4", emptyCells[xCell][yCell].getX(), emptyCells[xCell][yCell].getY(), root);
-            emptyCells[xCell][yCell].setTextClass(text);
-            root.getChildren().add(text);
-            emptyCells[xCell][yCell].setColor(4);
-        }
-    }
 
     //2048 NUMBER WHEN IT REACHES IT does not STOP.
     int haveEmptyCell() {
@@ -119,57 +72,6 @@ public class GameScene {
         return true;
     }
 
-    void sumCellNumbersToScore() {
-        score = 0;
-        for (int i = 0; i < numberOfCells; i++) {
-            for (int j = 0; j < numberOfCells; j++) {
-                score += cells[i][j].getNumber();
-            }
-        }
-    }
-
-    public void game(Scene gameScene, Group root, Stage primaryStage, Scene endGameScene, Group endGameRoot) {
-        this.root = root;
-        for (int i = 0; i < numberOfCells; i++) {
-            for (int j = 0; j < numberOfCells; j++) {
-                //the 45 below is responsible to make all the game in the center away from the borders.
-                cells[i][j] = new Cell((j) * LENGTH + (j + 1) * distanceBetweenCells + 45, (i) * LENGTH + (i + 1) * distanceBetweenCells, LENGTH, root);
-            }
-
-        }
-
-        Text scoreText = getScoreText(root);
-
-        randomFillNumber(1);
-        randomFillNumber(1);
-
-        gameScene.addEventHandler(KeyEvent.KEY_PRESSED, key -> Platform.runLater(() -> {
-            // boolean isMove = false
-            int haveEmptyCell;
-            // changed if statement to Switch case statement
-            gameMovement(primaryStage, key);
-
-            GameScene.this.sumCellNumbersToScore();
-            scoreText.setText(score + "");
-            haveEmptyCell = GameScene.this.haveEmptyCell();
-            //if isMove = true then ->
-            if (haveEmptyCell == -1) {
-                if (GameScene.this.canNotMove()) {
-
-                    primaryStage.setScene(endGameScene);
-                    Stage endgamePOP = new Stage();
-                    //endgamePOP.setScene(endGameScene);
-                    PopUpEndGame.getInstance().endGameShow(endGameRoot, primaryStage, endgamePOP, score);
-                    //this will take the score and put it inside the leaderBoad class.
-                    leaderboard.updateHighscore(score);
-
-                    root.getChildren().clear();
-                    score = 0;
-                }
-            } else if (haveEmptyCell == 1) GameScene.this.randomFillNumber(2);
-        }));
-    }
-
     void gameMovement(Stage primaryStage, KeyEvent key) {
         switch (key.getCode()) {
             case DOWN -> GameMoves.moveDown();
@@ -190,7 +92,7 @@ public class GameScene {
         }
     }
 
-    Text getScoreText(Group root) {
+    static Text getScoreText(Group root) {
         Text text = new Text();
         root.getChildren().add(text);
         text.setText("SCORE :");
@@ -213,3 +115,4 @@ public class GameScene {
         return numberOfCells;
     }
 }
+

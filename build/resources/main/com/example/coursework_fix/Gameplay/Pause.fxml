@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="PauseMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#switchToPauseMenu" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FF89BB; -fx-border-width: 6; -fx-border-color: #000000; -fx-border-style: solid;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursework_fix.Controller">
+<Pane fx:id="PauseMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#switchToPauseMenu" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #32CD32; -fx-border-width: 6; -fx-border-color: #000000; -fx-border-style: solid;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursework_fix.Controller">
     <children>
         <Button fx:id="Quit" layoutX="200.0" layoutY="242.0" mnemonicParsing="false" onAction="#QuitButton" prefHeight="90.0" prefWidth="200.0" style="-fx-background-color: #CCCC00; -fx-border-color: black; -fx-border-width: 2;" text="QUIT GAME">
             <font>

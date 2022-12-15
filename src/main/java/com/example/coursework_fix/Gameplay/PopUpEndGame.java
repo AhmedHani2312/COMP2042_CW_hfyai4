@@ -1,18 +1,10 @@
 package com.example.coursework_fix.Gameplay;
 
 import com.example.coursework_fix.Controller;
-import javafx.event.EventHandler;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -26,7 +18,7 @@ import java.util.Optional;
 public class PopUpEndGame {
     private static PopUpEndGame singleInstance = null;
 
-
+//singleton design pattern , instantiates end game show.
     public static PopUpEndGame getInstance() {
         if (singleInstance == null)
             singleInstance = new PopUpEndGame();
@@ -85,12 +77,6 @@ public class PopUpEndGame {
         scoreText.relocate(210, 210);
         scoreText.setFont(Font.font(60));
 
-
-//        VBox panel = new VBox();
-//        panel.setStyle("-fx-background-color: #FFFFFF;");
-//        panel.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
-
-        //endgameRoot.getChildren().add(scoreText);
         vBox.getChildren().addAll(scoreText, restartButton, mainMenuButton, quitButton);
         vBox.relocate(0, 0);
         vBox.setAlignment(Pos.CENTER);

@@ -1,5 +1,4 @@
 //this class is responsible for signup menu
-
 package com.example.coursework_fix;
 
 import javafx.event.ActionEvent;
@@ -7,32 +6,20 @@ import javafx.fxml.*;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class SignUpController implements Initializable {
-
     @FXML
     private TextField email;
     @FXML
@@ -46,17 +33,15 @@ public class SignUpController implements Initializable {
 
         password.setText(Account.getPassword());
 
-        if (Account.getEmail() != null){
+        if (Account.getEmail() != null) {
             email.setDisable(true);
             password.setDisable(true);
         }
-
     }
-
 
     private void addLine() {
 
-        String line = email.getText() + "," + password.getText() + ","+"0"+"\n";
+        String line = email.getText() + "," + password.getText() + "," + "0" + "\n";
 
         FileWriter file_writer;
         try {
@@ -73,12 +58,9 @@ public class SignUpController implements Initializable {
 
     }
 
-
-
     public void CreateACCclicked(ActionEvent actionEvent) {
         email.setDisable(true);
         password.setDisable(true);
-
 
         addLine();
     }

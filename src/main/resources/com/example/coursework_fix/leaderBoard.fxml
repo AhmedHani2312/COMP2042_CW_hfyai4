@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #87ceeb; -fx-border-style: solid; -fx-border-width: 10; -fx-border-color: #8A2BE2;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursework_fix.leaderBoard">
+<Pane fx:id="" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #32CD32; -fx-border-style: solid; -fx-border-width: 6; -fx-border-color: #000000;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursework_fix.leaderBoard">
    <children>
       <Text layoutX="140.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="High Scores List" wrappingWidth="370.36474609375">
          <font>
@@ -17,6 +17,6 @@
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-      <ListView fx:id="leaderboard" layoutX="33.0" layoutY="70.0" prefHeight="306.0" prefWidth="533.0" />
+      <ListView fx:id="HighScoreList" layoutX="33.0" layoutY="70.0" prefHeight="306.0" prefWidth="533.0" />
    </children>
 </Pane>

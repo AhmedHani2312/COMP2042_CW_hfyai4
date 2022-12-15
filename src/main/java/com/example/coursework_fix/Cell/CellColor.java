@@ -30,6 +30,7 @@ public class CellColor {
         colorMap.put(1024, Color.rgb(250, 0, 44, 0.8));
         colorMap.put(2048, Color.rgb(250, 0, 0, 1));
 
+
         rectangle.setFill(colorMap.get(number));
     }
 }
