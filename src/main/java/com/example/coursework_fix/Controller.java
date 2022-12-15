@@ -157,7 +157,7 @@ public class Controller implements Initializable {
     }
 
     public void leaderBoardButton(ActionEvent event) throws IOException {
-        SceneSwitcher("leaderBoard.fxml", event);
+        SceneSwitcher("Leaderboard.fxml", event);
     }
 
 
@@ -210,33 +210,3 @@ public class Controller implements Initializable {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

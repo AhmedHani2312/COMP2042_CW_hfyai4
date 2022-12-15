@@ -58,7 +58,7 @@ public class SignUpController implements Initializable {
 
     }
 
-    public void CreateACCclicked(ActionEvent actionEvent) {
+    public void CreateAccClicked(ActionEvent actionEvent) {
         email.setDisable(true);
         password.setDisable(true);
 

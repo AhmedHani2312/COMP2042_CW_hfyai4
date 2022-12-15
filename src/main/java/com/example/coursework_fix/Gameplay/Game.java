@@ -2,7 +2,7 @@ package com.example.coursework_fix.Gameplay;
 
 import com.example.coursework_fix.Cell.Cell;
 import com.example.coursework_fix.Text.TextMaker;
-import com.example.coursework_fix.leaderBoard;
+import com.example.coursework_fix.Leaderboard;
 import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.util.Random;
 //The below functions are taken from GameScene class have been refactored here in a new class!
 public class Game {
-    leaderBoard leaderboard = new leaderBoard(); // linking with leaderboard class object
+    Leaderboard leaderboard = new Leaderboard(); // linking with leaderboard class object
 
     private static int HEIGHT = 700;
     static final int WIDTH = 900;
@@ -22,7 +22,7 @@ public class Game {
     private int numberOfCells = GameScene.getNumberOfCells();
     private double LENGTH = (HEIGHT - ((numberOfCells + 1) * distanceBetweenCells)) / (double) numberOfCells;
     private long score = 0;
-    private leaderBoard hs = new leaderBoard();
+    private Leaderboard hs = new Leaderboard();
     private TextMaker textMaker = TextMaker.getSingleInstance();
     private Stage primaryStage = new Stage();
     private Group root = new Group();

@@ -1,6 +1,5 @@
 package com.example.coursework_fix.Cell;
 
-
 import com.example.coursework_fix.Text.ChangingText;
 import com.example.coursework_fix.Text.TextMaker;
 import javafx.scene.Group;

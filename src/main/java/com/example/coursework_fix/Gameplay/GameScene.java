@@ -2,7 +2,7 @@ package com.example.coursework_fix.Gameplay;
 
 import com.example.coursework_fix.Cell.Cell;
 import com.example.coursework_fix.Text.TextMaker;
-import com.example.coursework_fix.leaderBoard;
+import com.example.coursework_fix.Leaderboard;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Parent;
@@ -23,7 +23,7 @@ public class GameScene {
     private static Cell[][] cells = new Cell[numberOfCells][numberOfCells];
     private static Group root;
     private long score = 0;
-    leaderBoard leaderboard = new leaderBoard(); // linking with leaderboard class object
+    Leaderboard leaderboard = new Leaderboard(); // linking with leaderboard class object
 
     /*
      * @param number , number if cells to be set*/
