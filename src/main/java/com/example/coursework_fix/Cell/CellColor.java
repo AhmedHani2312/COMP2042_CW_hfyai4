@@ -5,7 +5,7 @@ import javafx.scene.shape.Rectangle;
 import java.util.HashMap;
 
 
-public class CellColor {
+public class CellColor implements CellColorBase {
     private int number;
     private Rectangle rectangle;
 
@@ -15,7 +15,8 @@ public class CellColor {
     }
     // moved all switch statements to hash map so we just have one call of setFill()
     // this is faster than going through every single switch statement to get to the desired one
-    void setColorByNumber(int number) {
+    @Override
+    public void setColorByNumber(int number) {
         HashMap<Integer, Color> colorMap = new HashMap<>();
         colorMap.put(0, Color.rgb(224, 226, 226, 0.5));
         colorMap.put(2, Color.rgb(232, 255, 100, 0.5));
