@@ -177,7 +177,7 @@ public class GameMoves {
     }
 
     /**
-     *
+     *see if the next cell move is valid for a vertical move.
      * @param i
      * @param j
      * @param des
