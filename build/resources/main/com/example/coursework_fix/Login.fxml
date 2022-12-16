@@ -5,28 +5,36 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="myPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #cc8033; -fx-border-color: #000000; -fx-border-width: 6; -fx-border-style: solid;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursework_fix.LoginController">
+<Pane fx:id="myPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="380.0" prefWidth="600.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 6; -fx-border-style: solid;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursework_fix.Controllers.LoginController">
    <children>
-      <Label layoutX="155.0" layoutY="181.0" prefHeight="17.0" prefWidth="90.0" text="Username">
+      <ImageView fitHeight="359.0" fitWidth="574.0" layoutX="16.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@wallpaper.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="152.0" layoutY="171.0" prefHeight="17.0" prefWidth="90.0" text="Username" textFill="#f7f7f7">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Label>
-      <TextField fx:id="email" layoutX="243.0" layoutY="179.0" promptText="Username" />
-      <Label layoutX="155.0" layoutY="217.0" prefHeight="25.0" prefWidth="84.0" text="Password">
+      <TextField fx:id="email" layoutX="243.0" layoutY="169.0" promptText="Username" />
+      <Label layoutX="155.0" layoutY="217.0" prefHeight="25.0" prefWidth="84.0" text="Password" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font></Label>
       <PasswordField fx:id="Password" layoutX="243.0" layoutY="217.0" promptText="Password" />
 
-      <Button fx:id="LoginButton" layoutX="347.0" layoutY="262.0" mnemonicParsing="false" onAction="#loginButton" style="-fx-background-color: #0b6623; -fx-border-image-width: 10; -fx-border-color: #000000;" text="Log In" textFill="#030303">
+      <Button fx:id="LoginButton" layoutX="347.0" layoutY="262.0" mnemonicParsing="false" onAction="#loginButton" prefHeight="30.0" prefWidth="65.0" style="-fx-background-color: #0b6623; -fx-border-image-width: 10; -fx-border-color: #000000;" text="Log In" textFill="#030303">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-      <Button fx:id="signup" layoutX="488.0" layoutY="346.0" mnemonicParsing="false" onAction="#SignUpButton" prefHeight="25.0" prefWidth="98.0" style="-fx-background-color: #808080;" text="Sign UP">
+      <Button fx:id="signup" layoutX="464.0" layoutY="314.0" mnemonicParsing="false" onAction="#SignUpButton" prefHeight="25.0" prefWidth="98.0" style="-fx-background-color: #808080;" text="Sign UP">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>
@@ -34,15 +42,19 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
-      <ColorPicker fx:id="myColorPicker" layoutX="14.0" layoutY="362.0" onAction="#changeColor" prefHeight="25.0" prefWidth="149.0" />
-      <Text layoutX="14.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Background Color" wrappingWidth="158.50778808593748">
+      <ColorPicker fx:id="myColorPicker" layoutX="57.0" layoutY="329.0" onAction="#changeColor" prefHeight="21.0" prefWidth="84.0">
+         <value>
+            <Color />
+         </value></ColorPicker>
+      <Text fill="WHITE" layoutX="40.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Background Color" wrappingWidth="156.79998779296875">
          <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <Text fill="#ae3131" layoutX="121.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2048 - Login" wrappingWidth="391.75018310546875">
+      <TextField layoutX="100.0" layoutY="34.0" prefHeight="79.0" prefWidth="400.0" />
+      <Text fill="#1c1c1c" layoutX="110.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2048 - Login" wrappingWidth="406.9501953125">
          <font>
-            <Font name="Old English Text MT" size="66.0" />
+            <Font name="Franklin Gothic Demi" size="70.0" />
          </font>
       </Text>
    </children>

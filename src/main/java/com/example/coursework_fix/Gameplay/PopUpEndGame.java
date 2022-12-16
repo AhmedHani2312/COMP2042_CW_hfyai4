@@ -13,18 +13,28 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Optional;
 
 public class PopUpEndGame {
     private static PopUpEndGame singleInstance = null;
 
-//singleton design pattern , instantiates end game show.
+    /**
+     * singleton design pattern , instantiates end game show.
+     * @return
+     */
     public static PopUpEndGame getInstance() {
         if (singleInstance == null)
             singleInstance = new PopUpEndGame();
         return singleInstance;
     }
 
+    /**
+     * This function is responsible for the popup menu after user loses the game(endGame).
+     * also, responsible for the button(Quit,Restart,MainMenu)if user wants to continue the game
+     * @param root
+     * @param primaryStage
+     * @param PopUpScore
+     * @param score
+     */
     public void endGameShow(Group root, Stage primaryStage, Stage PopUpScore, long score) {
         primaryStage.close();
         //responsible for pop up menu
@@ -58,7 +68,7 @@ public class PopUpEndGame {
         mainMenuButton.setFocusTraversable(false);
         mainMenuButton.setOnAction(e -> {
             try {
-                new Controller().switchtoMainMenu( e);
+                new Controller().switchMainMenu( e);
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
@@ -76,7 +86,7 @@ public class PopUpEndGame {
         scoreText.setFill(Color.BLACK);
         scoreText.relocate(210, 210);
         scoreText.setFont(Font.font(60));
-
+        //responsible for pop up menu in endGame
         vBox.getChildren().addAll(scoreText, restartButton, mainMenuButton, quitButton);
         vBox.relocate(0, 0);
         vBox.setAlignment(Pos.CENTER);

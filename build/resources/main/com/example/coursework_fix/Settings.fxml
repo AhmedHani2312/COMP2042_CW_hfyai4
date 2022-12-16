@@ -10,22 +10,44 @@
 
 <Pane fx:id="SettingsButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#BackButton" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #cc8033; -fx-border-style: solid; -fx-border-width: 6; -fx-border-color: #000000;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursework_fix.Controller">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffffffc" height="68.0" layoutX="183.0" layoutY="83.0" stroke="BLACK" strokeType="INSIDE" width="234.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffffffc" height="65.0" layoutX="183.0" layoutY="86.0" stroke="BLACK" strokeType="INSIDE" width="234.0" />
       <Text layoutX="117.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Settings Menu" wrappingWidth="380.55859375">
          <font>
             <Font name="Georgia Pro" size="50.0" />
          </font>
       </Text>
-      <RadioButton fx:id="AudioOn" layoutX="280.0" layoutY="108.0" mnemonicParsing="false" onAction="#SoundON" text="ON">
+      <RadioButton fx:id="AudioOn" layoutX="197.0" layoutY="128.0" mnemonicParsing="false" onAction="#SoundON" text="ON">
          <toggleGroup>
             <ToggleGroup fx:id="sound" />
          </toggleGroup></RadioButton>
-      <RadioButton fx:id="AudioOff" layoutX="345.0" layoutY="108.0" mnemonicParsing="false" onAction="#SoundOff" text="OFF" toggleGroup="$sound" />
-      <Text layoutX="191.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sound:">
+      <RadioButton fx:id="AudioOff" layoutX="363.0" layoutY="128.0" mnemonicParsing="false" onAction="#SoundOff" text="OFF" toggleGroup="$sound" />
+      <Text layoutX="265.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sound" wrappingWidth="127.2628173828125">
          <font>
             <Font name="Arial Black" size="20.0" />
          </font>
       </Text>
       <Button fx:id="back" layoutX="22.0" layoutY="14.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: #A0A0A0;" text="BACK" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fcfcfc" height="65.0" layoutX="183.0" layoutY="184.0" stroke="BLACK" strokeType="INSIDE" width="234.0" />
+      <Text layoutX="243.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dark Theme" wrappingWidth="155.2628173828125">
+         <font>
+            <Font name="Arial Black" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="RED" layoutX="243.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developing Soon.." wrappingWidth="127.2628173828125">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fcfcfc" height="65.0" layoutX="183.0" layoutY="281.0" stroke="BLACK" strokeType="INSIDE" width="234.0" />
+      <Text layoutX="224.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Difficulty" wrappingWidth="208.06280517578125">
+         <font>
+            <Font name="Arial Black" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="RED" layoutX="243.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developing Soon.." wrappingWidth="127.2628173828125">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Text>
    </children>
 </Pane>

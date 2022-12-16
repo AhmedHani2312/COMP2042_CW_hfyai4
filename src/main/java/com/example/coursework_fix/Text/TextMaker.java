@@ -13,12 +13,24 @@ public class TextMaker {
 
     }
 
+    /**
+     * singleton to instantiate Textmaker
+     * @return
+     */
     public static TextMaker getSingleInstance() {
         if (singleInstance == null)
             singleInstance = new TextMaker();
         return singleInstance;
     }
 
+    /**
+     * generates text displayed on the cell
+     * @param input
+     * @param xCell
+     * @param yCell
+     * @param root
+     * @return
+     */
     public Text madeText(String input, double xCell, double yCell, Group root) {
         double length = GameScene.getLENGTH();
         double fontSize = (3 * length) / 7.0;
@@ -29,8 +41,5 @@ public class TextMaker {
 
         return text;
     }
-
-    // refacotr from text maker class to a new class
-
 
 }

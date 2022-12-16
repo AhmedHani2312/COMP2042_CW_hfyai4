@@ -4,18 +4,32 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import java.util.HashMap;
 
-
+/**
+ * this class is responsible for color of cells in game
+ */
 public class CellColor implements CellColorBase {
     private int number;
     private Rectangle rectangle;
 
+    /**
+     * This function is responsible for cellColor in game
+     * @param number
+     * @param rectangle
+     */
     public CellColor(int number, Rectangle rectangle) {  //creating constructor
         this.number = number;
         this.rectangle = rectangle;
     }
-    // moved all switch statements to hash map so we just have one call of setFill()
-    // this is faster than going through every single switch statement to get to the desired one
+
+    /**
+     * hash map created as a method of refactoring to allow improvements in the future.eg. want to increase number like 4996 and easy to change colors
+     * moved all switch statements to hash map so we just have one call of setFill()
+     * this is faster than going through every single switch statement to get to the desired one
+     *
+     * @param number
+     */
     @Override
+
     public void setColorByNumber(int number) {
         HashMap<Integer, Color> colorMap = new HashMap<>();
         colorMap.put(0, Color.rgb(224, 226, 226, 0.5));

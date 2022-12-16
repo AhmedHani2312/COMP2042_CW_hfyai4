@@ -15,4 +15,6 @@ public class TextMakerTests {
     public void testIfNull() {
         assertNull(null);
     }
+
+
 }

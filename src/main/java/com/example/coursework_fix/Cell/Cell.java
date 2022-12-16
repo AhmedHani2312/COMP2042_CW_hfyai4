@@ -49,6 +49,10 @@ public class Cell {
         cell.setColor(cell.getNumber());
     }
 
+    /**
+     * this function adds up the cells together
+     * @param cell
+     */
     public void adder(Cell cell) {
         cell.getTextClass().setText((cell.getNumber() + this.getNumber()) + "");
         textClass.setText("0");
@@ -57,11 +61,13 @@ public class Cell {
         setColor(getNumber());
     }
 
-    //function to set color from new cellColour class refactored ,
+    /**
+     * this function sets color from new cellColour class.
+     * @param number
+     */
     public void setColor(int number) {
         new CellColor(number, rectangle).setColorByNumber(number);
     }
-
 
     public double getX() {
         return rectangle.getX();
@@ -75,15 +81,21 @@ public class Cell {
         return Integer.parseInt(textClass.getText());
     }
 
-
+    /**
+     * this setter is for Modify var.
+     * @param modify
+     */
     public void setModify(boolean modify) {
         this.modify = modify;
     }
 
+    /**
+     * this getter is for Modify var.
+     * @return modify
+     */
     public boolean getModify() {
         return modify;
     }
-
 
     private Text getTextClass() {
         return textClass;

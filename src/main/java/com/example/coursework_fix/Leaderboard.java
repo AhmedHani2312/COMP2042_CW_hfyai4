@@ -1,3 +1,4 @@
+//responsible for leaderboard where the score of the users are re
 package com.example.coursework_fix;
 
 import javafx.event.ActionEvent;
@@ -22,6 +23,10 @@ public class Leaderboard implements Initializable {
 
     File file = new File("C:\\Users\\omen\\IdeaProjects\\coursework_fix\\TextFiles\\data.txt\\");
 
+    /**
+     * This function is responsible for getting the high score for every user who signs up and create an account
+     * @param newscore
+     */
     public void updateHighscore(Long newscore) {
         try {
             String username = Account.getEmail();
@@ -55,6 +60,12 @@ public class Leaderboard implements Initializable {
 
     }
 
+    /**
+     * helps with replacing the old score of a user with the new score (updates new score )
+     * @param lineContent
+     * @param filepath
+     * @throws IOException
+     */
     public void deleteLine(String lineContent, String filepath) throws IOException {
         File file = new File(filepath);
         List<String> out = Files.lines(file.toPath())
@@ -67,6 +78,12 @@ public class Leaderboard implements Initializable {
         Controller.SceneSwitcher("Menu.fxml", event);
     }
 
+
+    /**
+     * goes throungh the file and gets the username and Score of the user and puts it into the listview in Leaderboard
+     * @param location
+     * @param resources
+     */
     public void initialize(URL location, ResourceBundle resources) {
         if (file.exists()) {
             List<String> Load = new ArrayList<>();
@@ -79,8 +96,6 @@ public class Leaderboard implements Initializable {
 
                     //System.out.println(line);
                     String[] profile = line.split(",");
-
-
                     String user = profile[0];
                     String score = profile[2];
                     System.out.println(user);

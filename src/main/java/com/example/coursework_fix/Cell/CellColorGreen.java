@@ -13,7 +13,9 @@ public class CellColorGreen implements CellColorBase {
         this.number = number;
         this.rectangle = rectangle;
     }
-
+    /**
+     * inheritance applied(CellColorBase).
+     */
     @Override
     public void setColorByNumber(int number) {
         HashMap<Integer, Color> colorMap = new HashMap<>();
@@ -27,8 +29,8 @@ public class CellColorGreen implements CellColorBase {
         colorMap.put(128, Color.rgb(18, 80, 44, 0.7));
         colorMap.put(256, Color.rgb(18, 60, 44, 0.8));
         colorMap.put(512, Color.rgb(18, 30, 44, 0.8));
-        colorMap.put(1024, Color.rgb(25, 0, 44, 0.8));
-        colorMap.put(2048, Color.rgb(25, 0, 0, 1));
+        colorMap.put(1024, Color.rgb(18, 28, 41, 0.8));
+        colorMap.put(2048, Color.rgb(18, 24, 39, 1));
 
 
         rectangle.setFill(colorMap.get(number));

@@ -1,6 +1,7 @@
-//i refactored from GameScene class the game movement methods  (moveLeft,right,up,down,isValidDesH ,passDestination,isValidDesV, )
-
-
+/**
+ * This class is responsible for all the game moves in 2048 GAME!
+ * refactored from GameScene class the game movement methods
+ */
 package com.example.coursework_fix.Gameplay;
 
 import com.example.coursework_fix.Cell.Cell;
@@ -9,6 +10,9 @@ public class GameMoves {
     private static Cell[][] cells = GameScene.getCells();
     private static int numberOfCells = GameScene.getNumberOfCells();
 
+    /**
+     * function responsible to shift cell one step to the left
+     */
     public static void moveLeft() {
         for (int i = 0; i < numberOfCells; i++) {
             for (int j = 1; j < numberOfCells; j++) {
@@ -19,6 +23,9 @@ public class GameMoves {
             }
         }
     }
+    /**
+     * function responsible to shift cell one step to the right
+     */
 
     public static void moveRight() {
         for (int i = 0; i < numberOfCells; i++) {
@@ -30,7 +37,9 @@ public class GameMoves {
             }
         }
     }
-
+    /**
+     * function responsible to shift cells one step Up
+     */
     public static void moveUp() {
         for (int j = 0; j < numberOfCells; j++) {
             for (int i = 1; i < numberOfCells; i++) {
@@ -42,7 +51,9 @@ public class GameMoves {
         }
 
     }
-
+    /**
+     * function responsible to shift cells one step Down
+     */
     public static void moveDown() {
         for (int j = 0; j < numberOfCells; j++) {
             for (int i = numberOfCells - 1; i >= 0; i--) {
@@ -55,6 +66,14 @@ public class GameMoves {
 
     }
 
+    /**
+     * check if moves of next dest in a horizontal way are valid or not
+     * @param i
+     * @param j
+     * @param des
+     * @param sign
+     * @return
+     */
     private static boolean isValidDesH(int i, int j, int des, int sign) {
         if (des + sign < numberOfCells && des + sign >= 0) {
             if (cells[i][des + sign].getNumber() == cells[i][j].getNumber() && !cells[i][des + sign].getModify()
@@ -65,7 +84,13 @@ public class GameMoves {
         return false;
     }
 
-
+    /**
+     * uses isValidDest to add cells horizontally
+     * @param i
+     * @param j
+     * @param des
+     * @param sign
+     */
     private static void moveHorizontally(int i, int j, int des, int sign) {
         if (isValidDesH(i, j, des, sign)) {
             cells[i][j].adder(cells[i][des + sign]);
@@ -75,6 +100,13 @@ public class GameMoves {
         }
     }
 
+    /**
+     * Uses isvalidDest to check if moves of next dest vertically are valid
+     * @param i
+     * @param j
+     * @param des
+     * @param sign
+     */
     private static void moveVertically(int i, int j, int des, int sign) {
         if (isValidDesV(i, j, des, sign)) {
             cells[i][j].adder(cells[des + sign][j]);
@@ -84,6 +116,13 @@ public class GameMoves {
         }
     }
 
+    /**
+     *passes dest of the cells while moving
+     * @param i
+     * @param j
+     * @param direct
+     * @return
+     */
     private static int passDestination(int i, int j, char direct) {
         int coordinate = j;
         if (direct == 'l') {
@@ -137,6 +176,14 @@ public class GameMoves {
         return -1;
     }
 
+    /**
+     *
+     * @param i
+     * @param j
+     * @param des
+     * @param sign
+     * @return
+     */
     private static boolean isValidDesV(int i, int j, int des, int sign) {
         if (des + sign < numberOfCells && des + sign >= 0)
             if (cells[des + sign][j].getNumber() == cells[i][j].getNumber() && !cells[des + sign][j].getModify()
