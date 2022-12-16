@@ -9,6 +9,8 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -52,10 +54,26 @@
          </font>
       </Text>
       <TextField layoutX="100.0" layoutY="34.0" prefHeight="79.0" prefWidth="400.0" />
-      <Text fill="#1c1c1c" layoutX="110.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2048 - Login" wrappingWidth="406.9501953125">
+      <Text layoutX="110.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2048 - Login" wrappingWidth="406.9501953125">
          <font>
             <Font name="Franklin Gothic Demi" size="70.0" />
          </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0" startX="0.9886363193844305" startY="0.7045454328710383">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.8526315689086914" green="0.14210526645183563" blue="0.14210526645183563" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
       </Text>
    </children>
 </Pane>
