@@ -33,11 +33,8 @@ public class LoginController {
     @FXML
     private ColorPicker myColorPicker;
 
-    public static String ThemeColor="0x1a3399ff";
-
     public void changeColor(ActionEvent event) {
         Color myColor = myColorPicker.getValue();
-        ThemeColor=String.valueOf(myColorPicker.getValue());
         myPane.setBackground(new Background(new BackgroundFill(myColor, CornerRadii.EMPTY, Insets.EMPTY)));
 
     }

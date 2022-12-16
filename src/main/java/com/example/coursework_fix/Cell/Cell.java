@@ -57,10 +57,11 @@ public class Cell {
         setColor(getNumber());
     }
 
-    //function to set color from new cellColour class refactored(interface).
+    //function to set color from new cellColour class refactored ,
     public void setColor(int number) {
         new CellColor(number, rectangle).setColorByNumber(number);
     }
+
 
     public double getX() {
         return rectangle.getX();
@@ -88,3 +89,5 @@ public class Cell {
         return textClass;
     }
 }
+
+
