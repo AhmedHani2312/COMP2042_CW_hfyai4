@@ -30,7 +30,7 @@
          </font></Label>
       <PasswordField fx:id="Password" layoutX="243.0" layoutY="217.0" promptText="Password" />
 
-      <Button fx:id="LoginButton" layoutX="347.0" layoutY="262.0" mnemonicParsing="false" onAction="#loginButton" prefHeight="30.0" prefWidth="65.0" style="-fx-background-color: #0b6623; -fx-border-image-width: 10; -fx-border-color: #000000;" text="Log In" textFill="#030303">
+      <Button fx:id="LoginButton" layoutX="342.0" layoutY="252.0" mnemonicParsing="false" onAction="#loginButton" prefHeight="30.0" prefWidth="65.0" style="-fx-background-color: #0b6623; -fx-border-image-width: 10; -fx-border-color: #000000;" text="Log In" textFill="#030303">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
@@ -38,7 +38,7 @@
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>
-      <Button fx:id="demo" layoutX="197.0" layoutY="262.0" mnemonicParsing="false" onAction="#DemoButton" prefHeight="30.0" prefWidth="116.0" style="-fx-background-color: #C41E3A;" text="Play As Guest">
+      <Button fx:id="demo" layoutX="197.0" layoutY="253.0" mnemonicParsing="false" onAction="#DemoButton" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: #8B0000;" text="Play As Guest">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>

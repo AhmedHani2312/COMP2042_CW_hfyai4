@@ -32,6 +32,11 @@ public class Cell {
         this.textClass = textClass;
     }
 
+    /**
+     * changes properties of Two cells by exchanging their text elements and colors
+     * each time a move happens this function will be used
+     * @param cell
+     */
     public void changeCell(Cell cell) {
 
         ChangingText text = new ChangingText();
