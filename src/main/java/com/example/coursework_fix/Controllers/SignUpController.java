@@ -4,6 +4,7 @@
 package com.example.coursework_fix.Controllers;
 
 import com.example.coursework_fix.Account;
+import com.example.coursework_fix.Controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.Node;
@@ -83,11 +84,7 @@ public class SignUpController implements Initializable {
      * @throws IOException
      */
     public void LoginButton(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        Controller.SceneSwitcher("Login.fxml",event);
     }
 
 
